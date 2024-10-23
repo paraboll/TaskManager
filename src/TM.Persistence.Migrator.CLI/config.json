@@ -1,0 +1,6 @@
+﻿{
+  "DbConfig": {
+    "Provider": "Postgres",
+    "ConnectionString": "Server=localhost;Port=5432;Database=TestMigrationDB;User Id=postgres;Password=qwerty123;"
+  }
+}
