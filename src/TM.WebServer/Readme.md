@@ -1,12 +1,12 @@
-﻿1) Создание службы: 
+﻿## 1. Создание службы: 
     sc create "TM.WebServer" binpath="путь до TM.WebServer.exe"
     sc start TM.WebServer
     sc stop TM.WebServer
     sc stop TM.WebServer
     sc delete TM.WebServer
 
-2) Настройка пути для развертывания сервиса указываеттся в WindowsService.json
-
+## 2. Настройка пути для развертывания сервиса указываеттся в WindowsService.json
+```
 {
   "Kestrel": {
     "Endpoints": {
@@ -19,11 +19,12 @@
     }
   }
 }
+```
+## 3. Swagger: 
+	http://localhost:5000/swagger/index.html
 
-3) swagger: http://localhost:5000/swagger/index.html
-
-4) Пример appsettings.json
-
+## 4. Пример appsettings.json
+```
 {
   "Logging": {
     "LogLevel": {
@@ -48,3 +49,4 @@
   "ReportFolder" : "Reports",
   "AllowedHosts": "*"
 }
+```
