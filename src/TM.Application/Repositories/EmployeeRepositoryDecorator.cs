@@ -17,7 +17,9 @@ namespace TM.Application.Repositoryies
             _employeeRepository = employeeRepository;
 
             if(_employeeRepository.GetByLoginAsync(testLogin).Result == null)
-                _employeeRepository.AddsAsync(EmployeeFactory.CreateEmployees().ToList());
+                _employeeRepository
+                    .AddsAsync(EmployeeFactory.CreateEmployees().ToList())
+                    .Wait();
         }
 
         public async Task<Employee> AddAsync(Employee employee)

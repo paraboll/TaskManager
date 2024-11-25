@@ -45,6 +45,17 @@ namespace TM.WebServer.Extensions
                     new BuisnessTaskRepositoryDecorator(
                         provider.GetRequiredService<BuisnessTaskRepository>())
                 );
+
+                //Нужно вызвать метод чтобы внести через конструктор инициализацию БД в памяти.
+                using (var provider = services.BuildServiceProvider())
+                {
+                    var buisnessTaskDecorator = provider.GetRequiredService<IBuisnessTaskRepository>() as BuisnessTaskRepositoryDecorator;
+                    buisnessTaskDecorator.GetAllAsync().Wait();
+
+                    var employeeDecorator = provider.GetRequiredService<IEmployeeRepository>() as EmployeeRepositoryDecorator;
+                    employeeDecorator.GetAllAsync().Wait();
+                    
+                }
             }
             else
             {

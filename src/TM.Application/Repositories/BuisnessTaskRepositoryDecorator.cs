@@ -19,7 +19,9 @@ namespace TM.Application.Repositoryies
             _buisnessTaskRepository = buisnessTaskRepository;
 
             if (_buisnessTaskRepository.GetByExternalIdIdAsync(testExternalId).Result == null)
-                _buisnessTaskRepository.AddsAsync(BuisnessTaskFactory.CreateBuisnessTask().ToList());
+                _buisnessTaskRepository
+                    .AddsAsync(BuisnessTaskFactory.CreateBuisnessTask().ToList())
+                    .Wait();
         }
 
         public async Task<BuisnessTask> AddAsync(BuisnessTask buisnessTask)
