@@ -46,8 +46,11 @@ namespace TM.WebServer
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication1 v1"));
 
             app.UseMiddleware<ExceptionHandlerMiddleware>();
-
+            
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

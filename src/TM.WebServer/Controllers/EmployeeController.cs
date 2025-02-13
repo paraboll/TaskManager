@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using TM.Application.Interfaces;
 using TM.Domain.Extensions;
 using TM.WebServer.Entities;
